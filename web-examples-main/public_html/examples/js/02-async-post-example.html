@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Async HTTP POST example</title>
+    <link href="../../base-style.css" rel="stylesheet" />
+    <style>
+      textarea {
+        display: block;
+        width: 100%;
+        height: 80rem;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      This is an example showing how we can send an asynchronous HTTP POST
+      request with data (parameters) in Javascript. We don't process the
+      response, we simply print it in the textarea. Check out the source code to
+      understand what is going on!
+    </p>
+    <label>
+      Username:
+      <input id="uname" type="text" value="Bill" />
+    </label>
+
+    <button onclick="postForm()">Post the data</button>
+
+    <div>
+      <label>
+        Response:
+        <textarea id="response"></textarea>
+      </label>
+    </div>
+
+    <script>
+      /**
+       * Send and HTTP POST request, include the username in the POST data.
+       * Shows the response as a simple text inside the textarea.
+       * Uses blocking calls with await instead of promises.
+       *
+       * @returns {Promise<void>} A promise to complete this operation at some time.
+       */
+      async function postForm() {
+        const username = document.getElementById("uname").value;
+
+        const formData = new FormData();
+        formData.append("username", username);
+
+        const requestParameters = {
+          method: "POST",
+          body: formData,
+        };
+        const response = await fetch(
+          "https://web-tek.ninja/php_backend/dummy_login.php",
+          requestParameters
+        );
+
+        const responseBodyText = await response.text();
+        showResponseInTextArea(responseBodyText);
+      }
+
+      /**
+       * Show HTTP response text in the textarea.
+       * @param {string} responseText The body of the HTTP response, as a simple string
+       */
+      function showResponseInTextArea(responseText) {
+        document.getElementById("response").innerText = responseText;
+      }
+    </script>
+  </body>
+</html>

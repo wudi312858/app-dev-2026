@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ex11.3 Solution: Ajax</title>
+    <link href="../../base-style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <article>
+      <h1>Solution for Exercise 11.3</h1>
+      <p>
+        This is a solution for
+        <a href="../../exercises/ex11.3-ajax-get">Exercise 11.3</a>. See the
+        source code for this file.
+      </p>
+    </article>
+
+    <button onclick="showDiceFromApi()">Throw a dice</button>
+    <p id="dice-val"></p>
+
+    <script>
+      /**
+       * Send request to the API (backend) and show the result (dice value) in the document.
+       * @returns {Promise<void>}
+       */
+      async function showDiceFromApi() {
+        const response = await fetch(
+          "https://web-tek.ninja/php_backend/throw_a_dice.php"
+        );
+        const responseText = await response.text();
+        showDiceValue(responseText);
+      }
+
+      /**
+       * Show value of the dice inside an HTML element (on the page).
+       * @param {string} diceValue The value of the dice, as received from the API.
+       */
+      function showDiceValue(diceValue) {
+        document.getElementById("dice-val").innerText =
+          "You threw " + diceValue;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+
+.idea/
+
+.DS_Store
+
+.next
+
+node_modules
+
+public_html/examples/typescript/**/*.js

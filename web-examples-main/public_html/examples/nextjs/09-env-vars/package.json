@@ -1,0 +1,12 @@
+{
+  "name": "environment-variables",
+  "version": "1.0.0",
+  "dependencies": {
+    "next": "^15.1.6"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  }
+}

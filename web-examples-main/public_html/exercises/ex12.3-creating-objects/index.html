@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercise 12.3: Creating objects</title>
+    <link rel="stylesheet" href="../../base-style.css" />
+  </head>
+  <body>
+    <article>
+      <section>
+        <h1>Exercise 12.3</h1>
+        <p>
+          This is Exercise 12.3, lecture on objects and prototypes in
+          Javascript, used in the course
+          <a href="https://www.ntnu.edu/studies/courses/IDATA2301"
+            >IDATA2301 Web technologies</a
+          >
+          at NTNU, campus Aalesund.
+        </p>
+        <p>Go <a href="../../index.html">back to exercise list</a>.</p>
+
+        <h2>Purpose</h2>
+        <p>
+          The purpose of the exercise is practice different ways of creating
+          objects in Javascript.
+        </p>
+      </section>
+
+      <section>
+        <h2>Instructions</h2>
+        <p>
+          Create a new HTML document, and include a Javascript file called
+          <code>app.js</code>. In that file, create objects using four possible
+          ways:
+        </p>
+        <ol>
+          <li>object literals</li>
+          <li>constructor functions</li>
+          <li>classes</li>
+          <li><code>Object.create()</code> method</li>
+        </ol>
+        <p>
+          See the four methods explained in lecture slides. Note: you must name
+          the different objects differently (for example, <code>person1</code>,
+          <code>person2</code>, <code>person3</code>, and <code>person4</code>)!
+          Create the following objects:
+        </p>
+        <ol>
+          <li>
+            Four <code>Person</code> objects which have a firstname and a
+            lastname.
+          </li>
+          <li>
+            Two <code>GameObject</code> objects (player and enemy). Note: if you
+            are ambitious, you can create these objects using all the four ways
+            mentioned above. But you can also choose just one of the ways. For
+            example, create both <code>GameObject</code> instances using a
+            class. Imagine that these are objects placed in a 2D game. Each
+            <code>GameObject</code> must have the following properties:
+            <ul>
+              <li><code>x_position</code>: number</li>
+              <li><code>y_position</code>: number</li>
+              <li><code>name</code>: string</li>
+              <li><code>life</code>: number</li>
+            </ul>
+            Each <code>GameObject</code> must have the following methods
+            (functions):
+            <ul>
+              <li>
+                A constructor which allows to set the (x, y) position, name and
+                life.
+              </li>
+              <li>
+                <code>decreaseLife(delta)</code> - decrease the life of the
+                object by <code>delta</code>. The life does not go lower than
+                zero.
+              </li>
+              <li>
+                <code>move(deltaX, deltaY)</code> - change the (x,y) position of
+                the object by <code>deltaX</code> and <code>deltaY</code>.
+              </li>
+              <li>
+                <code>isAlive()</code> - returns true when the value of the
+                <code>life</code> property is positive.
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Solution</h2>
+        <p>
+          You can find a solution
+          <a href="../../exercise-solutions/ex12.3-creating-objects">here</a>.
+        </p>
+      </section>
+    </article>
+  </body>
+</html>

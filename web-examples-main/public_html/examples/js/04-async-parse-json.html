@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Parsing JSON response</title>
+    <link href="../../base-style.css" rel="stylesheet" />
+    <style>
+      #joke {
+        font-family: Arial, sans-serif;
+        font-size: 2em;
+        margin-top: 0;
+      }
+
+      #img-container {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Here we show how you can send an asynchronous HTTP request and parse the
+      JSON response.
+    </p>
+    <button onclick="fetchJoke()">Get a joke</button>
+
+    <div id="img-container"></div>
+    <p id="joke"></p>
+
+    <script>
+      /**
+       * Send an Ajax request to the joke server
+       */
+      async function fetchJoke() {
+        const response = await fetch(
+          "https://api.chucknorris.io/jokes/random?category=dev"
+        );
+        const responseJson = await response.json();
+        handleJsonJoke(responseJson);
+      }
+
+      /**
+       * Parse the JSON object, find out the necessary parts and pass them to functions which place the content
+       * in the necessary places.
+       * @param {JSON} joke A JSON object returned from the joke server.
+       */
+      function handleJsonJoke(joke) {
+        displayJoke(joke.value);
+        displayIcon(joke.icon_url);
+      }
+
+      /**
+       * Display a joke in the necessary container.
+       * @param {string} joke_text The joke text
+       */
+      function displayJoke(joke_text) {
+        document.getElementById("joke").innerText = joke_text;
+      }
+
+      /**
+       * Display an icon (image) for the joke.
+       * @param {string} icon_url URL to the image source
+       */
+      function displayIcon(icon_url) {
+        const imgNode = document.createElement("img");
+        imgNode.src = icon_url;
+        const imgContainer = document.getElementById("img-container");
+        imgContainer.innerText = ""; // Remove any previous images
+        imgContainer.appendChild(imgNode);
+      }
+    </script>
+  </body>
+</html>

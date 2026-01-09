@@ -1,0 +1,13 @@
+{
+  "name": "client-side-data-fetching",
+  "version": "1.0.0",
+  "dependencies": {
+    "next": "^15.1.6",
+    "swr": "2.1.5"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Loading widgets asynchronously</title>
+    <link href="../../base-style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <p>
+      Here we show how you can send an asynchronous HTTP request, which includes
+      an HTML <i>widget</i> in response. We then place the widget inside our own
+      website.
+    </p>
+    <label>
+      How many news widgets to load:
+      <select id="article-count">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option selected="selected" value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </label>
+    <button onclick="loadNews()">Load news articles</button>
+    <div id="articles"></div>
+
+    <script>
+      /**
+       * Send multiple HTTP GET requests to API, fetch HTML chunks as responses, show them in the HTML document.
+       */
+      function loadNews() {
+        console.log("Loading articles...");
+        clearArticles();
+
+        const articleCount = document.getElementById("article-count").value;
+
+        for (let i = 0; i < articleCount; ++i) {
+          fetch("https://web-tek.ninja/php_backend/random_article.php")
+            .then((response) => response.text())
+            .then((responseText) => onArticleReceived(responseText, i));
+
+          // Note - the requests are sent in parallel now! If we used `await` for each request,
+          // then the requests would be sent sequentially, which may be slower!
+          // This is how we would do it with `await`:
+          // const response = await fetch(
+          //   "https://web-tek.ninja/php_backend/random_article.php"
+          // );
+          // const responseText = await response.text();
+          // onArticleReceived(responseText, i);
+        }
+      }
+
+      function clearArticles() {
+        document.getElementById("articles").innerText = "";
+      }
+
+      function onArticleReceived(articleHtml, requestNumber) {
+        console.log("Received response for request #" + requestNumber);
+        const articleDiv = document.createElement("div");
+        articleDiv.innerHTML = articleHtml;
+        document.getElementById("articles").appendChild(articleDiv);
+      }
+    </script>
+  </body>
+</html>

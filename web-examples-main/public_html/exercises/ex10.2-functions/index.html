@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercise 10.2: Functions</title>
+    <link rel="stylesheet" href="../../base-style.css" />
+  </head>
+  <body>
+    <article>
+      <h1>Exercise 10.2</h1>
+      <p>
+        This is Exercise 10.2, lecture on Javascript basics, used in the course
+        <a href="https://www.ntnu.edu/studies/courses/IDATA2301"
+          >IDATA2301 Web technologies</a
+        >
+        at NTNU, campus Aalesund.
+      </p>
+      <p>Go <a href="../..">back to exercise list</a>.</p>
+
+      <h2>Purpose</h2>
+      <p>
+        The purpose of the exercise is get familiar with defining and calling
+        functions in Javascript.
+      </p>
+
+      <h2>Instructions</h2>
+      <p>
+        Create a new HTML document, include a Javascript block there (choose
+        whichever way you want - inline JS, or external file). Create the
+        following functions (and test them by calling them):
+      </p>
+      <ol>
+        <li>
+          <code>hello(firstname, lastname)</code>: returns a string
+          <code>"Hello, <i>firstname lastname</i>"</code>.
+        </li>
+        <li>
+          Make a test - call (invoke) that function with parameters
+          firstname:"John", lastname:"Doe". Print the result to the console.
+        </li>
+        <li>
+          Make another test call: print the result of
+          <code>hello("Chuck")</code> to the console.
+        </li>
+        <li>
+          Set a default value for the <code>lastname</code> parameter to
+          "Norris" inside the <code>hello</code>
+          function.
+        </li>
+        <li>
+          Create another function <code>includes(s, search)</code>: return true,
+          if string <code>s</code> includes substring <code>search</code>, false
+          otherwise. For example, all of these would return true:
+          <ul>
+            <li><code>includes("Chuck", "u")</code></li>
+            <li><code>includes("Chuck", "C")</code></li>
+            <li><code>includes("Chuck", "uck")</code></li>
+          </ul>
+          , while these would return false:
+          <ul>
+            <li><code>includes("Chuck", "a")</code></li>
+            <li><code>includes("Chuck", "Chuckie")</code></li>
+            <li><code>includes("Chuck", "chu")</code></li>
+            <li><code>includes("Chuck", "Buck")</code></li>
+            <li><code>includes("Chuck", "Mercy")</code></li>
+          </ul>
+
+          You can use some built-in string methods. Find it on the web! Finding
+          the right functions in documentation is an important skill.
+        </li>
+        <li>
+          In general, you should write some tests for every function you create.
+          Otherwise - how do you know if it is correct?
+        </li>
+        <li>
+          <code>countA(s)</code>: returns the number of times letter "a" appears
+          in the string s.
+        </li>
+        <li>
+          Write some tests for <code>countA</code> function - print the results
+          to console. Check the console to make sure the function works
+          correctly.
+        </li>
+        <li>
+          <code>countChars(s, c)</code>: returns the number of times the
+          character c appears in string s.
+        </li>
+        <li>
+          Refactor the <code>countA(s)</code> function to re-use the
+          <code>countChars()</code> function (in case you did not do that right
+          from the beginning).
+        </li>
+        <li>
+          Bonus: create a function <code>isEmail(s)</code>: returns true if s is
+          a valid email address. Multiple options here, some of them involve
+          using regular expressions.
+        </li>
+      </ol>
+
+      <h2>Solution</h2>
+      <p>
+        You can find a solution
+        <a href="../../exercise-solutions/ex10.2-functions">here</a>.
+      </p>
+    </article>
+  </body>
+</html>
